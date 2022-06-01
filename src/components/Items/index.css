@@ -1,0 +1,13 @@
+.item--container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  position: relative;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.item--container::-webkit-scrollbar {
+  display: none;
+}

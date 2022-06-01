@@ -1,0 +1,15 @@
+.sidebar--btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  padding: .5rem 1rem;
+  background-color: none;
+  background-color: var(--dkblack);
+  color: var(--white);
+  width: 100%;
+}
+
+.sidebar--btn:hover {
+  background-color: var(--lightblack);
+}

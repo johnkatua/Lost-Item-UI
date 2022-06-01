@@ -1,0 +1,10 @@
+.footer--container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8%;
+}
+
+.footer--container__copyright {
+  margin-right: .2rem;
+}

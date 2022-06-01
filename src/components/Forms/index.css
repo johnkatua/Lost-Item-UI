@@ -1,0 +1,13 @@
+.tips--container ul {
+  list-style: none;  
+}
+
+.tips--container ul li {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.tips--container ul li::before {
+  content: "💡";
+  margin-right: .3rem;
+}

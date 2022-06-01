@@ -1,0 +1,17 @@
+.content--container {
+  display: flex;
+  flex-direction: row;
+  height: 84%;
+  /* height: 600px; */
+  border-bottom: 1px solid var(--blue);
+  position: relative;
+}
+
+.content--container__left {
+  width: 20%;
+  border-right: 1px solid var(--blue);
+}
+
+.content--container__right {
+  width: 80%;
+}
