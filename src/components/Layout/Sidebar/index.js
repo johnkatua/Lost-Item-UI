@@ -67,19 +67,16 @@ const Sidebar = () => {
             );
           })}
       </div>
-      <div className="sidebar--container__bottom">
-        <h3>Categories</h3>
-        {/* <SidebarButton onClick={() => handleClick("/items")}>
+      <div className={on ? "sidebar--container__bottom" : "sidebar--container__bottom__mobile"}>
+        <h3>{on ? "Categories" : "Categ"}</h3>
+        <SidebarButton onClick={() => handleClick("/items")}>
           <span className="sidebar--all">All</span>
-        </SidebarButton> */}
+        </SidebarButton>
           {categories?.map((category, index) => {
             return (
               <>
-                <SidebarButton key={index} onClick={() => handleClick("/items")}>
-                  <span className="sidebar--all">All</span>
-                </SidebarButton>
                 <SidebarButton key={index} onClick={() => handleClick(`/items/${category.id}`)}>
-                  <span className="sidebar--name">{category.name}</span>
+                  <span className={on ? "sidebar--name" : "sidebar--name__mobile"}>{category.name}</span>
                 </SidebarButton>
               </>
             )

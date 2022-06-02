@@ -47,3 +47,19 @@
   font-weight: bold;
   font-size: 1.2rem;
 }
+
+
+/** mobile version */
+
+.sidebar--container__bottom__mobile h3 {
+  font-size: 1rem;
+  padding: 5px 0;
+}
+
+.sidebar--name__mobile {
+  font-size: 1rem;
+}
+
+.sidebar--all__mobile {
+  font-size: 1rem;
+}
