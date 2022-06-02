@@ -8,8 +8,12 @@ import SidebarButton from "../../SidebarButton";
 
 const Sidebar = () => {
   const [width, setWidth] = useState(0);
+  const [categoryName, setCategoryName] = useState("");
   const navigate = useNavigate();
   const { categories } = useSelector((state) => state.categoriesReducer);
+  const getCategoryName = categories.map(category => category.name);
+
+  console.log(getCategoryName);
 
   const handleClick = (path) => {
     return navigate(path);
@@ -40,6 +44,8 @@ const Sidebar = () => {
     window.addEventListener("resize", handleResize);
     handleResize();
 
+
+
     return () => {
       window.removeEventListener("resize", handleResize)
     }
@@ -47,10 +53,12 @@ const Sidebar = () => {
 
   const on = width > 768;
 
+  console.log('lit', categoryName);
+
 
   return (
     <div className="sidebar--container">
-      <div className="sidebar--container__top">
+      <div className={on ? "sidebar--container__top" : "sidebar--container__top__mobile"}>
           {menus.map((menu, index) => {
             return (
               <>
@@ -74,10 +82,14 @@ const Sidebar = () => {
           <span className={on ? "sidebar--all": "sidebar--all__mobile"}>All</span>
         </SidebarButton>
           {categories?.map((category, index) => {
+            console.log(category.name)
             return (
               <>
                 <SidebarButton key={index} onClick={() => handleClick(`/items/${category.id}`)} mobile={on}>
-                  <span className={on ? "sidebar--name" : "sidebar--name__mobile"}>{category.name}</span>
+                  <span className={on ? "sidebar--name" : "sidebar--name__mobile"}>
+                    {((category.name.length > 5) && on) ? category.name : `${category.name.slice(0, 3)}s`}
+                    </span>
+                  {/* <span>{((category.name.length > 5) && !on)? category.name.slice(0, 3) : category.name}</span> */}
                 </SidebarButton>
               </>
             )
