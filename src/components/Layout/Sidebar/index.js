@@ -47,13 +47,14 @@ const Sidebar = () => {
 
   const on = width > 768;
 
+
   return (
     <div className="sidebar--container">
       <div className="sidebar--container__top">
           {menus.map((menu, index) => {
             return (
               <>
-                <SidebarButton key={index} onClick={() => handleClick(menu.path)}>
+                <SidebarButton key={index} onClick={() => handleClick(menu.path)} mobile={on}>
                   {on ? (
                     <>
                       <span className="sidebar--icon">{menu.icon}</span>
@@ -69,13 +70,13 @@ const Sidebar = () => {
       </div>
       <div className={on ? "sidebar--container__bottom" : "sidebar--container__bottom__mobile"}>
         <h3>{on ? "Categories" : "Categ"}</h3>
-        <SidebarButton onClick={() => handleClick("/items")}>
-          <span className="sidebar--all">All</span>
+        <SidebarButton onClick={() => handleClick("/items")} mobile={on}>
+          <span className={on ? "sidebar--all": "sidebar--all__mobile"}>All</span>
         </SidebarButton>
           {categories?.map((category, index) => {
             return (
               <>
-                <SidebarButton key={index} onClick={() => handleClick(`/items/${category.id}`)}>
+                <SidebarButton key={index} onClick={() => handleClick(`/items/${category.id}`)} mobile={on}>
                   <span className={on ? "sidebar--name" : "sidebar--name__mobile"}>{category.name}</span>
                 </SidebarButton>
               </>

@@ -13,3 +13,14 @@
 .sidebar--btn:hover {
   background-color: var(--lightblack);
 }
+
+/** mobile version */
+
+.sidebar--btn__mobile {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dkblack);
+  color: white;
+  border: none;
+  padding: 2px 10px;
+}
