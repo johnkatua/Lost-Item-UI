@@ -78,3 +78,27 @@
   }
 }
 
+@media screen and (min-width: 1200px) {
+  .card--container {
+    width: 30%;
+  }
+}
+
+@media  screen and (max-width: 768px) {
+  .card--container {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .card--container {
+    width: 45%;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 768px) {
+  .card--container {
+    width: 100%;
+  }
+}
+
