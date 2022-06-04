@@ -4,12 +4,13 @@
   "description": "",
   "main": "App.js",
   "scripts": {
-    "dev": "parcel ./src/index.html --open",
+    "dev": "parcel ./src/index.html",
     "format": "prettier --write 'src/**/*.{js,jsx,json,md,yml,css,html}'",
-    "lint": "eslint src/**/*.{js,jsx} --quiet"
+    "lint": "eslint src/**/*.{js,jsx} --quiet",
+    "build": "parcel build ./src/index.html --public-url ./"
   },
   "keywords": [],
-  "author": "",
+  "author": "John Katua",
   "license": "ISC",
   "devDependencies": {
     "buffer": "^6.0.3",
