@@ -114,3 +114,26 @@ img {
   width: 25%;
   color: var(--blue);
 }
+
+@media screen and (min-width: 200px) and (max-width: 960px) {
+  .auth--image {
+    display: none;
+  }
+
+  .auth--container__details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 94%;
+    left: 3%;
+  }
+
+  .form--body {
+    width: 100%;
+    background-color: black;
+  }
+
+  .form--header {
+    padding: 1rem 0;
+  }
+}
