@@ -2,12 +2,12 @@
   "name": "lost-item",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "source": "src/index.html",
   "scripts": {
     "dev": "parcel ./src/index.html",
     "format": "prettier --write 'src/**/*.{js,jsx,json,md,yml,css,html}'",
     "lint": "eslint src/**/*.{js,jsx} --quiet",
-    "build": "parcel build ./src/index.html --public-url ./"
+    "build": "parcel build ./src/index.html"
   },
   "keywords": [],
   "author": "John Katua",
