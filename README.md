@@ -28,4 +28,14 @@ You can also view the hosted version:
   https://hilarious-cobbler-e87906.netlify.app/
 ```
 
+## Contact
+
+Name: [John Katua](https://www.linkedin.com/in/johnkatua/)
+
+Project Link: [Lost&Found](https://github.com/johnkatua/Lost-Item-UI)
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)
+
 

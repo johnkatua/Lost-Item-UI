@@ -11,7 +11,7 @@
   },
   "keywords": [],
   "author": "John Katua",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "buffer": "^6.0.3",
     "eslint": "^8.15.0",
