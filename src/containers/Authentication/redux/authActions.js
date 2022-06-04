@@ -24,7 +24,7 @@ export const submitLogin = (user, navigate) => {
       dispatch(submittingRequest(true));
       await validateLogin(user);
       const response = await axios.post(
-        "http://localhost:5000/auth/login",
+        "https://powerful-tundra-02406.herokuapp.com/auth/login",
         user
       );
       if (response) {
@@ -49,7 +49,7 @@ export const submitRegister = (user, navigate) => {
       dispatch(submittingRequest(true));
       await validateRegister(user);
       const response = await axios.post(
-        "http://localhost:5000/auth/register",
+        "https://powerful-tundra-02406.herokuapp.com/auth/register",
         user
       );
       if (response) {
