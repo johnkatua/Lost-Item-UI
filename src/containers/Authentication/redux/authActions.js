@@ -1,8 +1,11 @@
 import axios from "axios";
+import { Cookies } from "react-cookie";
 
 import { AUTH_USER, SUBMITTING_REQUEST, LOGOUT_USER } from "./authConstants";
 import { validateLogin, validateRegister } from "../../../helpers/validations";
 import { setError } from "../../Error/redux/errorActions";
+
+const cookies = new Cookies();
 
 export const submittingRequest = (isLoading) => ({
   type: SUBMITTING_REQUEST,
@@ -28,8 +31,8 @@ export const submitLogin = (user, navigate) => {
         user
       );
       if (response) {
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("user", JSON.stringify(response.data.userDetails));
+        cookies.set("token", response.data.token, { path: "/" });
+        cookies.set("user", JSON.stringify(response.data.userDetails), { path: "/"});
         dispatch(authUser(response.data.userDetails));
         dispatch(submittingRequest(false));
         navigate("/");
@@ -53,8 +56,8 @@ export const submitRegister = (user, navigate) => {
         user
       );
       if (response) {
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("user", JSON.stringify(response.data.userDetails));
+        cookies.set("token", response.data.token, { path: "/" });
+        cookies.set("user", JSON.stringify(response.data.userDetails), { path: "/"});
         dispatch(authUser(response.data.userDetails));
         dispatch(submittingRequest(false));
         navigate("/");
@@ -70,7 +73,8 @@ export const submitRegister = (user, navigate) => {
 
 export const removeUser = () => {
   return async (dispatch) => {
-    localStorage.removeItem("user");
+    // localStorage.removeItem("user");
+    cookies.remove("user");
     dispatch(authUser(null));
   }
 };

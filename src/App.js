@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { CookiesProvider } from "react-cookie";
+import { CookiesProvider, Cookies } from "react-cookie";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,9 +11,11 @@ import { fetchCategories } from "./containers/Categories/redux/categoriesActions
 import RoutesPage from "./Routes";
 import store from "./store";
 
-const user = localStorage.getItem("user");
+const cookies = new Cookies();
+
+const user = cookies.get("user");
 if (user) {
-  store.dispatch(authUser(JSON.parse(user)));
+  store.dispatch(authUser(user));
 }
 
 store.dispatch(fetchItems());
