@@ -1,5 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
+import { CookiesProvider } from "react-cookie";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -20,9 +21,11 @@ store.dispatch(fetchCategories());
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <RoutesPage />
-    </Provider>
+    <CookiesProvider>
+      <Provider store={store}>
+        <RoutesPage />
+      </Provider>
+    </CookiesProvider>
   );
 };
 
