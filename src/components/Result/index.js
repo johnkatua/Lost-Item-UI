@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
+import Card from "../Cards/index"
+  
 const CardResult = () => {
   return (
-    <div>
-      Card Result
-    </div>
+    <Card />
   )
 }
 
