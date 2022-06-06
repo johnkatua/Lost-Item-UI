@@ -8,10 +8,12 @@ import Card from "../Cards";
 import { removeItem, showModal } from "../../containers/Items/store/itemActions";
 import ModalComponent from "../Modal";
 import UpdateItem from "../Forms/updateItem";
+import ContactInfo from "../Forms/ContactInfo";
 
 
 const FilteredItems = () => {
   const [data, setData] = useState({});
+  const [showContacModal, setShowContactModal] = useState(false);
   const dispatch = useDispatch();
   const { items, isOpen } = useSelector((state) => state.itemReducer);
   const { categories } = useSelector((state) => state.categoriesReducer);
@@ -25,6 +27,17 @@ const FilteredItems = () => {
     dispatch(showModal(true));
     setData(item);
   };
+
+  const handleShowContactInfo = (item) => {
+    dispatch(showModal(true));
+    setShowContactModal(true);
+    setData(item);
+  }
+
+  const handleClose = () => {
+    dispatch(showModal(false));
+    setShowContactModal(false);
+  }
 
   return (
     <div className="filtered--items">
@@ -50,11 +63,16 @@ const FilteredItems = () => {
                 action={item.userId === user?.id ? true : false}
                 handleEdit={() => handleEdit(item)}
                 handleDelete={() => dispatch(removeItem(item))}
+                showContactInfo={() => handleShowContactInfo(item)}
               />
             ))
         )}
       </div>
-      <ModalComponent open={isOpen} close={() => dispatch(showModal(false))} body={<UpdateItem data={data} />} title="Update Item" />
+      <ModalComponent 
+        open={isOpen} 
+        close={() => handleClose()} 
+        body={showContacModal ? <ContactInfo data={data} /> : <UpdateItem data={data} />} 
+        title={showContacModal ? "Contact Info" : "Update Item"} />
     </div>
   );
 };

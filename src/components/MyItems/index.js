@@ -17,6 +17,10 @@ const MyItemComponent = () => {
   const handleEdit = (item) => {
     dispatch(showModal(true));
     setData(item)
+  };
+
+  const handleClose = () => {
+    dispatch(showModal(false));
   }
 
   return (
@@ -39,7 +43,12 @@ const MyItemComponent = () => {
           ))}
         </div>
       )}
-      <ModalComponent open={isOpen} close={() => dispatch(showModal(false))} body={<UpdateItem data={data} />} title="Update Item" />
+      <ModalComponent 
+        open={isOpen} 
+        close={() => handleClose()} 
+        body={<UpdateItem data={data} />} 
+        title={"Update Item"}
+        />
     </div>
   );
 };
