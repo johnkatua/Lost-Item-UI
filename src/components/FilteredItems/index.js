@@ -13,7 +13,7 @@ import ContactInfo from "../Forms/ContactInfo";
 
 const FilteredItems = () => {
   const [data, setData] = useState({});
-  const [showContactInfo, setShowContactModal] = useState(false);
+  const [showContacModal, setShowContactModal] = useState(false);
   const dispatch = useDispatch();
   const { items, isOpen } = useSelector((state) => state.itemReducer);
   const { categories } = useSelector((state) => state.categoriesReducer);
@@ -71,8 +71,8 @@ const FilteredItems = () => {
       <ModalComponent 
         open={isOpen} 
         close={() => handleClose()} 
-        body={showContactInfo ? <ContactInfo data={data} /> : <UpdateItem data={data} />} 
-        title={showContactInfo ? "Contact Info" : "Update Item"} />
+        body={showContacModal ? <ContactInfo data={data} /> : <UpdateItem data={data} />} 
+        title={showContacModal ? "Contact Info" : "Update Item"} />
     </div>
   );
 };

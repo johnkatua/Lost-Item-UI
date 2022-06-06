@@ -6,9 +6,11 @@ import Card from "../Cards";
 import ModalComponent from "../Modal";
 import UpdateItem from "../Forms/updateItem";
 import { removeItem, showModal } from "../../containers/Items/store/itemActions";
+import ContactInfo from "../Forms/ContactInfo";
 
 const MyItemComponent = () => {
   const [data, setData] = useState({});
+  const [showContactInfo, setShowContactModa] = useState(false)
   const dispatch = useDispatch();
   const { items, isOpen } = useSelector((state) => state.itemReducer);
   const { user } = useSelector((state) => state.authReducer);
@@ -39,7 +41,10 @@ const MyItemComponent = () => {
           ))}
         </div>
       )}
-      <ModalComponent open={isOpen} close={() => dispatch(showModal(false))} body={<UpdateItem data={data} />} title="Update Item" />
+      <ModalComponent 
+        open={isOpen} 
+        close={() => dispatch(showModal(false))} 
+        body={showContactInfo ? <ContactInfo data={data} /> : <UpdateItem data={data} />} title="Update Item" />
     </div>
   );
 };
